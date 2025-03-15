@@ -1,8 +1,8 @@
-# Curaleaf Shooter Game
+# Dungeon Shooter Game
 
-![Curaleaf Shooter Gameplay](assets/screenshots/gameplay.png)
+![Dungeon Shooter Gameplay](assets/screenshots/gameplay.png)
 
-**Curaleaf Shooter Game** is a 2D dungeon-crawler shooter built with [Phaser 3](https://phaser.io/), a popular HTML5 game framework. In this game, you control a Curaleaf-branded character navigating procedurally generated rooms, battling cannabis-themed enemies, collecting power-ups, and facing a recurring boss. With grid-based movement, real-time combat, and mechanics inspired by classic roguelikes and arcade shooters, this project is a personal exploration of game development. It showcases modular JavaScript code, physics-based interactions, and dynamic room generation. The game is open-source and welcomes contributions!
+**Dungeon Shooter Game** is a 2D dungeon-crawler shooter built with [Phaser 3](https://phaser.io/), a popular HTML5 game framework. In this game, you control a character navigating procedurally generated rooms, battling cannabis-themed enemies, collecting power-ups, and facing a recurring boss. With grid-based movement, real-time combat, and mechanics inspired by classic roguelikes and arcade shooters, this project is a personal exploration of game development. It showcases modular JavaScript code, physics-based interactions, and dynamic room generation. The game is open-source and welcomes contributions!
 
 ---
 
@@ -34,7 +34,7 @@
 
 ## Game Overview
 
-In **Curaleaf Shooter**, you play as a Curaleaf agent exploring a grid-based dungeon teeming with rival cannabis brand enemies like AYR, Fluent, and Cookies. Your goal is to survive, rack up points, and progress by defeating enemies and collecting items. Every 10th room, you’ll face the formidable Trulieve Swarm boss, a challenging encounter with swarm mechanics and projectiles.
+In **Dungeon Shooter**, you play as a agent exploring a grid-based dungeon teeming with rival cannabis brand enemies like AYR, Fluent, and Cookies. Your goal is to survive, rack up points, and progress by defeating enemies and collecting items. Every 10th room, you’ll face the formidable Trulieve Swarm boss, a challenging encounter with swarm mechanics and projectiles.
 
 Built with Phaser 3’s physics engine, the game delivers smooth movement and collisions, paired with a retro aesthetic featuring ASCII-like tile visuals and branded sprites.
 
@@ -58,17 +58,17 @@ Built with Phaser 3’s physics engine, the game delivers smooth movement and co
 
 curaleaf-shooter-game/
 ├── assets/
-│   ├── effects/          # Power-ups and items (e.g., preroll.png, squeeze.png)
-│   ├── logos/            # Enemy and player sprites (e.g., curaleaf.png, trulieve.png)
-│   ├── projectiles/      # Bullet sprites (e.g., nugget.png, ground.png)
-│   └── screenshots/      # README images (e.g., gameplay.png)
-├── index.html            # Entry point HTML file
-├── game.js               # Main game logic and Phaser setup
-├── player.js             # Player movement, shooting, and power-up handling
-├── enemies.js            # Enemy behaviors and boss logic
-├── rooms.js              # Room generation and navigation
-├── ui.js                 # HUD and interface management
-└── README.md             # This file
+│   ├── effects/          ## Power-ups and items (e.g., preroll.png, squeeze.png)
+│   ├── logos/            ## Enemy and player sprites (e.g., curaleaf.png, trulieve.png)
+│   ├── projectiles/      ## Bullet sprites (e.g., nugget.png, ground.png)
+│   └── screenshots/      ## README images (e.g., gameplay.png)
+├── index.html            ## Entry point HTML file
+├── game.js               ## Main game logic and Phaser setup
+├── player.js             ## Player movement, shooting, and power-up handling
+├── enemies.js            ## Enemy behaviors and boss logic
+├── rooms.js              ## Room generation and navigation
+├── ui.js                 ## HUD and interface management
+└── README.md             ## This file
 
 ---
 

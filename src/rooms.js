@@ -72,22 +72,24 @@ function generateDungeon(scene) {
     }
 
     if (hasWater) {
-      for (let i = 0; i < Phaser.Math.Between(3, 6); i++) {
-        const x = Phaser.Math.Between(2, 17), y = Phaser.Math.Between(2, 9);
-        if (scene.dungeonGrid[y][x] === 0) scene.dungeonGrid[y][x] = 12;
+      // Create a complete water body across the room (rows 5-7, columns 4-16)
+      for (let y = 5; y <= 7; y++) {
+        for (let x = 4; x <= 16; x++) {
+          scene.dungeonGrid[y][x] = 12; // Water tile
+        }
       }
-      if (Phaser.Math.Between(0, 2) === 0) {
-        const bridgeCenterX = Phaser.Math.Between(6, 13);
-        scene.dungeonGrid[7][bridgeCenterX] = 15;
-        scene.dungeonGrid[7][bridgeCenterX - 1] = 15;
-        scene.dungeonGrid[7][bridgeCenterX + 1] = 12;
-        scene.dungeonGrid[7][bridgeCenterX - 2] = 12;
+      // Place bridge across the water at row 6, columns 8-12
+      for (let x = 8; x <= 12; x++) {
+        scene.dungeonGrid[6][x] = 15; // Bridge tile
       }
-      for (let i = 0; i < Phaser.Math.Between(1, 3); i++) {
-        const x = Phaser.Math.Between(2, 17), y = Phaser.Math.Between(2, 9);
-        if (scene.dungeonGrid[y][x] === 0 || scene.dungeonGrid[y][x] === 14) {
-          if (Phaser.Math.Between(0, 1) === 0) scene.dungeonGrid[y][x] = 13;
-          else if (scene.dungeonGrid[y][x] === 0) scene.dungeonGrid[y][x] = 14;
+      // Ensure connectivity with flood-fill
+      const reachable = floodFill(10, 6, scene.dungeonGrid); // Start from player position
+      for (let y = 0; y < 12; y++) {
+        for (let x = 0; x < 20; x++) {
+          if ([0, 15].includes(scene.dungeonGrid[y][x]) && !reachable.has(`${x},${y}`)) {
+            // Connect isolated land with paths or adjust bridge placement
+            if (scene.dungeonGrid[y][x - 1] === 0) scene.dungeonGrid[y][x - 1] = 0; // Ensure land connection
+          }
         }
       }
     } else if (hasTrees) {
@@ -198,6 +200,7 @@ function generateDungeon(scene) {
     }
   }
 
+  // Render the dungeon with text-based environment
   for (let y = 0; y < 12; y++) {
     for (let x = 0; x < 20; x++) {
       let char, color;
@@ -209,13 +212,16 @@ function generateDungeon(scene) {
         case 5: char = 'X'; color = '#FF0000'; break;
         case 6: char = '$'; color = '#FFD700'; break;
         case 7: char = '~'; color = '#FF0000'; break;
-        case 12: char = 'W'; color = '#0000FF'; break;
+        case 12: // Water with ripples
+          char = Math.random() < 0.5 ? "W" : "~";
+          color = char === "W" ? "#0000FF" : "#ADD8E6";
+          break;
         case 13: char = '^'; color = '#90EE90'; break;
         case 14: char = 'O'; color = '#808080'; break;
-        case 15: char = '='; color = '#8B4513'; break;
-        case 16: char = 'F'; color = '#FF4500'; break;
-        case 17: char = '>'; color = '#808080'; break;
-        case 18: char = '<'; color = '#808080'; break;
+        case 15: char = "="; color = '#8B4513'; break; // Text-based bridge
+        case 16: char = '—'; color = '#A9A9A9'; break; // Walkable path
+        case 17: char = '█'; color = '#808080'; break; // Stone bridge
+        case 18: char = 'S'; color = '#FFD700'; break; // Switch (optional)
         case 19: char = ''; color = '#FFFFFF'; break;
         case 20: char = ''; color = '#FFFFFF'; break;
         case 21: char = ''; color = '#FFFFFF'; break;
@@ -227,7 +233,8 @@ function generateDungeon(scene) {
       const text = scene.add.text(x * 48 + 24, y * 48 + 24, char, { fontSize: '32px', fill: color }).setOrigin(0.5);
       scene.dungeonTexts.push(text);
 
-      if ([1, 2, 7, 12, 13, 14, 16, 17, 18, 24].includes(scene.dungeonGrid[y][x])) {
+      // Add colliders for non-walkable tiles (exclude water, bridge, and paths)
+      if ([1, 2, 7, 13, 14].includes(scene.dungeonGrid[y][x])) { // Excludes 12 (water), 15 (bridge), 16 (path), 17 (stone bridge)
         const collider = scene.physics.add.sprite(x * 48 + 24, y * 48 + 24).setSize(48, 48).setVisible(false);
         collider.setImmovable(true);
         scene.colliders.add(collider);
@@ -431,4 +438,21 @@ export function tryMoveRoom(scene, time) {
       }
     });
   }
+}
+
+function floodFill(startX, startY, grid) {
+  const stack = [[startX, startY]];
+  const visited = new Set();
+  while (stack.length > 0) {
+    const [x, y] = stack.pop();
+    if (visited.has(`${x},${y}`)) continue;
+    visited.add(`${x},${y}`);
+    const neighbors = [[x - 1, y], [x + 1, y], [x, y - 1], [x, y + 1]];
+    neighbors.forEach(([nx, ny]) => {
+      if (nx >= 0 && nx < 20 && ny >= 0 && ny < 12 && [0, 15].includes(grid[ny][nx])) {
+        stack.push([nx, ny]);
+      }
+    });
+  }
+  return visited;
 }

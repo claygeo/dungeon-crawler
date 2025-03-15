@@ -103,7 +103,7 @@ export function spawnEnemy() {
     return;
   }
   const tile = dungeonGrid[gridY][gridX];
-  if ([1, 2, 7, 12, 13, 14, 16, 17, 18].includes(tile)) {
+  if ([1, 2, 7, 12, 13, 14].includes(tile)) { // Excludes 15 (bridges) and 16 (paths)
     console.log(`Enemy spawn blocked at (${gridX}, ${gridY}) - collides`);
     return;
   }

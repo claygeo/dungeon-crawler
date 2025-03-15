@@ -88,6 +88,14 @@ function create() {
 
   this.pauseKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
   this.isPaused = false;
+
+  // Add ripple animation timer for water
+  this.time.addEvent({
+    delay: 500, // Update ripples every 0.5 seconds
+    callback: () => updateWaterRipples(this),
+    callbackScope: this,
+    loop: true
+  });
 }
 
 function update(time, delta) {
@@ -143,6 +151,24 @@ function update(time, delta) {
     }
   } catch (e) {
     console.error('Update loop error:', e);
+  }
+}
+
+function updateWaterRipples(scene) {
+  if (scene.dungeonTexts && scene.dungeonGrid) {
+    for (let y = 0; y < 12; y++) {
+      for (let x = 0; x < 20; x++) {
+        if (scene.dungeonGrid[y][x] === 12) { // Water tile
+          const index = y * 20 + x;
+          const text = scene.dungeonTexts[index];
+          if (text && Math.random() < 0.3) { // 30% chance to toggle ripple
+            const currentChar = text.text;
+            text.setText(currentChar === "W" ? "~" : "W");
+            text.setFill(currentChar === "W" ? "#ADD8E6" : "#0000FF");
+          }
+        }
+      }
+    }
   }
 }
 
