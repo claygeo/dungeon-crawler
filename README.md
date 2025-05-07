@@ -39,7 +39,7 @@ Built with Phaser 3’s physics engine, the game delivers smooth movement and co
 
 ---
 
-## Features
+### Features
 
 - **Procedural Room Generation:** Dynamically created rooms with varying layouts (water, trees, traps, etc.).
 - **Grid-Based Movement:** Navigate a 20x12 tile grid with precise, snap-to-position controls.
@@ -53,7 +53,7 @@ Built with Phaser 3’s physics engine, the game delivers smooth movement and co
 
 ---
 
-## Game Mechanics
+### Game Mechanics
 
 ### Player Movement
 - **Grid-Based:** Moves in 48x48 pixel tiles across a 20x12 grid.
@@ -97,7 +97,7 @@ Built with Phaser 3’s physics engine, the game delivers smooth movement and co
 
 ---
 
-## Installation
+### Installation
 
 ### Prerequisites
 - **Node.js:** For running a local server (optional but recommended).
@@ -118,7 +118,7 @@ Built with Phaser 3’s physics engine, the game delivers smooth movement and co
 3. Play: The game starts automatically.
 	
 	
-How to Play
+### How to Play
 Controls
 	Arrow Keys: Move up, down, left, right.
 	'X': Use XBite nuke (when charge is full).
