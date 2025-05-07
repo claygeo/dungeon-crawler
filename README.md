@@ -53,24 +53,6 @@ Built with Phaser 3’s physics engine, the game delivers smooth movement and co
 
 ---
 
-## File Structure
-
-curaleaf-shooter-game/
-├── assets/
-│   ├── effects/          ## Power-ups and items (e.g., preroll.png, squeeze.png)
-│   ├── logos/            ## Enemy and player sprites (e.g., curaleaf.png, trulieve.png)
-│   ├── projectiles/      ## Bullet sprites (e.g., nugget.png, ground.png)
-│   └── screenshots/      ## README images (e.g., gameplay.png)
-├── index.html            ## Entry point HTML file
-├── game.js               ## Main game logic and Phaser setup
-├── player.js             ## Player movement, shooting, and power-up handling
-├── enemies.js            ## Enemy behaviors and boss logic
-├── rooms.js              ## Room generation and navigation
-├── ui.js                 ## HUD and interface management
-└── README.md             ## This file
-
----
-
 ## Game Mechanics
 
 ### Player Movement
