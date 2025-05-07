@@ -22,13 +22,7 @@
 7. [Development](#development)
    - [Prerequisites](#prerequisites)
    - [Running Locally](#running-locally)
-   - [Building for Production](#building-for-production)
-8. [Contributing](#contributing)
-9. [Known Issues](#known-issues)
-10. [Future Enhancements](#future-enhancements)
-11. [License](#license)
-12. [Acknowledgements](#acknowledgements)
-
+   
 ---
 
 ## Game Overview
