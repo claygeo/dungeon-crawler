@@ -1,6 +1,5 @@
 # Dungeon Shooter Game
 
-![Dungeon Shooter Gameplay](assets/screenshots/gameplay.png)
 
 **Dungeon Shooter Game** is a 2D dungeon-crawler shooter built with [Phaser 3](https://phaser.io/), a popular HTML5 game framework. In this game, you control a character navigating procedurally generated rooms, battling cannabis-themed enemies, collecting power-ups, and facing a recurring boss. With grid-based movement, real-time combat, and mechanics inspired by classic roguelikes and arcade shooters, this project is a personal exploration of game development. It showcases modular JavaScript code, physics-based interactions, and dynamic room generation. The game is open-source and welcomes contributions!
 
