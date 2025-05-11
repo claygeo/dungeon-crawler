@@ -16,6 +16,7 @@
    - [Rooms and Navigation](#rooms-and-navigation)
    - [Power-Ups](#power-ups)
    - [Enemies](#enemies)
+   - [Shop](#shop)
    - [Boss: Trulieve Swarm](#boss-trulieve-swarm)
 5. [Installation](#installation)
 6. [How to Play](#how-to-play)
@@ -80,6 +81,11 @@ Built with Phaser 3’s physics engine, the game delivers smooth movement and co
 - **Muv:** Retreats and shoots, 25 HP, 15 damage.
 - **Trulieve:** Swarms in groups, 15 HP, 5 damage.
 - **Cookies:** Shielded (Chocolate), 40 HP, 10 damage.
+
+### Shop
+- After defeating certain enmies they drop seeds.
+- Spend seeds at the store marked 'G' in certain dungeon rooms.
+- Buy helpful power-ups that can enchance the users gameplay.
 
 ### Boss: Trulieve Swarm
 - **Trigger:** Appears every 10th room (`roomDistance % 10 === 0`).
