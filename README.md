@@ -22,6 +22,7 @@
 7. [Development](#development)
    - [Prerequisites](#prerequisites)
    - [Running Locally](#running-locally)
+8. [Visuals](#visuals)
    
 ---
 
@@ -121,5 +122,15 @@ Controls
 	
 Objective
 Survive, score points, and defeat the Trulieve boss every 10 rooms.
+
+## Visuals 
+
+Rooms: ![image](https://github.com/user-attachments/assets/04257005-840e-4e8c-836c-b5682cbcca6c)
+![image](https://github.com/user-attachments/assets/32c844f8-1798-4b81-933d-571c512ef805)
+Gameplay: ![image](https://github.com/user-attachments/assets/a3f1395f-41af-4029-a455-b944d75e2ede)
+![image](https://github.com/user-attachments/assets/4de89354-1c9a-4166-ac5e-045372578643)
+Shop: ![image](https://github.com/user-attachments/assets/2c8eedca-f6bc-433c-b941-6c1afcc7cb5a)
+![image](https://github.com/user-attachments/assets/2d6be6d3-80f6-4133-a1e9-1a03678d1c17)
+
 
 
